@@ -1,11 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
 :root{
     --title: #f8c27a;
     --textShadow: 0 2px 2px rgba(0,0,0,.7);
     --boxShadow: 0 0px 10px rgba(0,0,0,.2);
 }
-*{
+*{ /*application de style dans tous les éléments html*/
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /*pour bien dimensionner nos éléments*/ /*l'asterique est comme un reset*/
 }
-    
+body{
+    font-size: 14px;
+    width: 100vw;
+    overflow: hidden; /*pour eviter les problèmes de scroll*/
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+}
+.container{
+    background-color: rgba(255 ,255, 255, 0.2);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: var(--boxShadow);
+    text-align: center;
+}
+h1{
+    font-family: 'Luckiest Guy', cursive;
+    margin-bottom: 15px;
+    color: #ffc31d;
+    text-shadow: var(--textShadow);
+    display: inline-block; /*pour éviter que le titre ne s'etale pas sur toute la longueur de la boite*/
+}
+.vies{
+    margin: 10px;
+}
+ion-icon{
+    font-size: 50px;
+    fill: red; /*pour remplir les coeurs*/
+}
+#inputBox{
+    background-color: #96e6a1;
+    padding: 1px;
+    border-radius: 5px;
+}
+#inputBox > label {/*pour rappeler le label du formulaire et ça renvoie le reste en dessous*/
+    display: block;/*pour qu il prenne toute la largeur de sa ligne*/
+    margin-bottom: 8px;
+}
+input,
+button{
+    outline: none;  /*bordure autour des boutons*/
+    border: none; /*pas de bordure par défaut*/
+    padding: 3px 20px;
+    border-radius: 5px;
+}
+button{
+    background-color: teal;
+    color: #ffffff;
+    cursor: pointer; /*le curser est une main au lieu de la souris classique*/
+    transition: all 0.2s; /*donner un effet plus naturel au transition*/
+}
+button:hover{
+    transform: translateY(-2px); /*le bouton va monter de 2px vers le haut*/
+    background-color: rgb(16, 204, 204); /*changement de couleur au passage de la souris sur le btn*/
+}
+p#message{
+    margin: 20px auto 0 auto;
+}
+#rejouer{/*btn rejouer qui ne s'affiche que lorque l on gagne ou lorsque l on perd
+    display: none; /*pour ne pas l'afficher à l'écran*/
+    margin: 5px auto 0 auto;
+}
+#details{
+    font-weight: bold;
+    font-size: 6px;
+    margin-top: 5px;
+}
+
