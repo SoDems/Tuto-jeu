@@ -192,7 +192,66 @@ p#message{
     }
 }
 @media(max-width: 320px){
-
+    .container{
+        width: 90vw;
+    }
+    h1{
+        margin-bottom: 10px;
+        margin-top: 20px;
+        font-size: 28px;
+    }
+    h2{
+        font-size: 20px;
+        padding-bottom: 30px;
+    }
+    .vies{
+        margin: 10px;
+    }
+    ion-icon{
+        font-size: 50px;
+    }
+    #inputBox{
+        padding: 3px;
+        border-radius: 5px;
+    }
+    form label{
+        font-size: 20px;
+        padding-bottom: 5px;
+    }
+    #inputBox > label {
+        margin-bottom: 3px;
+    }
+    input,
+    button{
+        padding: 5px 10px;
+        width: 150px;
+        height: 40px;
+        font-size: 20px;
+    }
+    button{
+        width: 120px;
+        height: 40px;
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    p#message{
+        margin: 20px auto 0 auto;
+        font-size: 15px;
+    }
+    #rejouer{/*btn rejouer qui ne s'affiche que lorque l on gagne ou lorsque l on perd*/
+        display: none; /*pour ne pas l'afficher à l'écran*/
+        margin: 5px auto 0 auto;
+    }
+    #details{
+        font-size: 18px;
+        margin-top: 5px;
+    }
+    #rebours{
+        font-size: 20px;
+    }
+    #number{
+        margin-bottom: 20px;
+    }
     
 }
 
