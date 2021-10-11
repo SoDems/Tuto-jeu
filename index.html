@@ -8,31 +8,41 @@
     <title>tuto jeu</title>
 </head>
 <body>
+    
     <!-- Dans le container on va mettre le titre, explication du jeu, les coeurs, le formulaire (label, input...) -->
     <div class="container">
         <h1>Trouve le nombre !</h1>
-        <p id="rebours" ></p>
-        <div class="vies">
-            <ion-icon name="heart-outline"></ion-icon>
-            <ion-icon name="heart"></ion-icon>
-
+        <div class="choix">
+            <h2>Choisis ton niveau</h2>
+            <div id="niveau">
+                <button id="btn1" type="button" class="btn btn-outline-dark">Facile</button>
+                <button id="btn2" type="button" class="btn btn-outline-dark">Normal</button>
+                <button id="btn3" type="button" class="btn btn-outline-dark">Difficile</button>
+            </div>
         </div>
-        <!--   Création du formulaire ac la balise form  -->
-        <form id="inputBox">
-            <label for="number"> Entrez un nombre : </label>
-            <input type="number" id="number" min="0" max="100" required>
-            <!-- bien reprendre de l'id avec la valeur du for, cela permet de communiquer entre les deux -->
-            <!-- required = tant que c'est pas ajouter on ne peut pas envoyé le formulaire -->
-            <!-- ajouter un bouton -->
-            <button type="submit" id="essayerBtn">Essayer</button>
-            <!-- type veut dire que le bouton est de type submit ce qui va permettre d'envyer le formulaire-->
-            <p id="message"></p>
-            <button id="rejouer">Rejouer ?</button>
-        </form>
-        <!-- la dernière phrase ne fait pas parti du formulaire -->
-        <p id="details">* Brûlant = &plusmn; 2 ; Chaud = &plusmn; 5 ; Tiède = &plusmn; 10 ; Froid = + de 10. </p>
-        <!-- &plusmn = plus ou moins -->
-    </div>
+        <div class="jeu">
+            <p id="rebours" ></p>
+            <div class="vies">
+                <ion-icon name="heart-outline"></ion-icon>
+                <ion-icon name="heart"></ion-icon>
+            </div>
+            <!--   Création du formulaire ac la balise form  -->
+            <form id="inputBox">
+                <label for="number"> Entrez un nombre : </label>
+                <input type="number" id="number" min="0" max="100" required>
+                <!-- bien reprendre de l'id avec la valeur du for, cela permet de communiquer entre les deux -->
+                <!-- required = tant que c'est pas ajouter on ne peut pas envoyé le formulaire -->
+                <!-- ajouter un bouton -->
+                <button type="submit" id="essayerBtn">Essayer</button>
+                <!-- type veut dire que le bouton est de type submit ce qui va permettre d'envyer le formulaire-->
+                <p id="message"></p>
+                <button id="rejouer">Rejouer ?</button>
+            </form>
+            <!-- la dernière phrase ne fait pas parti du formulaire -->
+            <p id="details">* Brûlant = &plusmn; 2 ; Chaud = &plusmn; 5 ; Tiède = &plusmn; 10 ; Froid = + de 10. </p>
+            <!-- &plusmn = plus ou moins -->
+        </div>
+
     <script src="./app.js"></script>   
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script> 

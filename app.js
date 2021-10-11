@@ -34,6 +34,9 @@ const essayerBtn = document.getElementById('essayerBtn');
 const rejouerBtn = document.getElementById('rejouer');
 const body = document.getElementsByTagName('body')[0];/*pour choisir l'element on choisit l'element body*/
 const rebours = document.getElementById('rebours');
+const choix = document.getElementsByClassName('choix');
+const jeu = document.getElementsByClassName('jeu');
+const niveau = document.getElementById('niveau');
 
 // Modèles de coeur
 const coeurVide = '<ion-icon name="heart-outline"></ion-icon>';
@@ -46,21 +49,49 @@ const bgTiede = 'linear-gradient(120deg, #f6d365 0%, #fda085 100%)';
 const bgChaud = 'linear-gradient(-60deg, #ff5858 0%, #f09819 100%)';
 const bgBrulant = 'linear-gradient(to top, #ff0844 0%, #ffb199 100%)';
 
-const bgWin = 'linear-gradient(-225deg, #231557 0%, #44107A 100%, #FF1361 67%? #FFF800 100%)';
+const bgWin = 'linear-gradient(-225deg, #231557 0%, #44107A 100%, #FF1361 67%, #FFF800 100%)';
 const bgLooser = 'linear-gradient(60deg, #29323c 0%, #485563 100%)';
+
+let totalVies;
+
+
+btn1.addEventListener ('click', (e) => {
+    choix[0].style.display = "none";
+    jeu[0].style.display = "block";
+    totalVies = 7;
+    play(totalVies);
+})
+
+    
+btn2.addEventListener ('click', (e) => {
+    choix[0].style.display = "none";
+    jeu[0].style.display = "block";
+    totalVies = 5;
+    play(totalVies);
+})
+btn3.addEventListener ('click', (e) => {
+    choix[0].style.display = "none";
+    jeu[0].style.display = "block";
+    totalVies = 3;
+    play(totalVies);
+})
+
+
+
+
+   
 
 //integrer la logique du jeu = initialiser ce qu'il se passe au chargement du jeu 
 //Récuperation de la valeur du formulaire ce que l utilisateur va entrer pour jouer
 
 // play :
-const play = () => {  //fonction fléchée = nouvelle synthaxe depuis es6 (c'est une norme, c’est un standard de langage de programmation, il definit: la synthaxe, les types de variable et autres   => lancer une fonction
+const play = (totalVies) => {  //fonction fléchée = nouvelle synthaxe depuis es6 (c'est une norme, c’est un standard de langage de programmation, il definit: la synthaxe, les types de variable et autres   => lancer une fonction
    //comment generer un nombre aleatoire ?
    const randomNumber = Math.floor(Math.random(/*chiffre entre 0 et 1*/) *101) /*math.floor = pour avoir des nombres entiers à la valeur inférieur*/
-   const totalVies = 5;
-   let vies = totalVies; 
-   
 
+   let vies = totalVies; 
    console.log(randomNumber); /*pour voir le chiffre choisi par la machine ds la console*/
+
 
    //actualiser à chaque essai - TOUTE LA LOGIQUE
    formulaire.addEventListener('submit' , (e) => {     /*qui va se déclencher à une certaine action, le (e) submit = des que le formulaire va etre envoyé, on va lui ordonner une fonction. le (e) represente l'element ou va se derouler l'evenement */
@@ -144,7 +175,7 @@ const play = () => {  //fonction fléchée = nouvelle synthaxe depuis es6 (c'est
    })
 
 }
-play();
+
 
 
 
