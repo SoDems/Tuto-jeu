@@ -18,7 +18,7 @@ body{
     justify-content: center;
     align-items: center;
     font-family: sans-serif;
-    background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+    background-image: linear-gradient(120deg, #0a0a0a 0%, #c296e6 50%, #0a0a0a);
 }
 .container{
     background-color: rgba(255 ,255, 255, 0.2);
@@ -26,28 +26,39 @@ body{
     border-radius: 5px;
     box-shadow: var(--boxShadow);
     text-align: center;
+    width: 70vw;
 }
 .jeu{
     display: none;
 }
 h1{
     font-family: 'Luckiest Guy', cursive;
-    margin-bottom: 15px;
-    color: #ffc31d;
+    margin-bottom: 20px;
+    margin-top: 50px;
+    color: #00050a;
     text-shadow: var(--textShadow);
     display: inline-block; /*pour éviter que le titre ne s'etale pas sur toute la longueur de la boite*/
+    font-size: 70px;
+}
+h2{
+    font-size: 40px;
+    padding-bottom: 100px;
 }
 .vies{
     margin: 10px;
 }
 ion-icon{
-    font-size: 50px;
+    font-size: 70px;
     fill: red; /*pour remplir les coeurs*/
 }
 #inputBox{
-    background-color: #96e6a1;
-    padding: 1px;
+    background-color: #4d0643;
+    padding: 3px;
     border-radius: 5px;
+}
+form label{
+    color: white;
+    font-size: 20px;
 }
 #inputBox > label {/*pour rappeler le label du formulaire et ça renvoie le reste en dessous*/
     display: block;/*pour qu il prenne toute la largeur de sa ligne*/
@@ -59,19 +70,26 @@ button{
     border: none; /*pas de bordure par défaut*/
     padding: 3px 20px;
     border-radius: 5px;
+    width: 150px;
+    height: 40px;
+    font-size: 20px;
 }
 button{
-    background-color: teal;
+    background-color: rgb(61, 65, 65);
     color: #ffffff;
     cursor: pointer; /*le curser est une main au lieu de la souris classique*/
     transition: all 0.2s; /*donner un effet plus naturel au transition*/
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
 }
 button:hover{
     transform: translateY(-2px); /*le bouton va monter de 2px vers le haut*/
-    background-color: rgb(16, 204, 204); /*changement de couleur au passage de la souris sur le btn*/
+    background-color: rgb(179, 185, 185); /*changement de couleur au passage de la souris sur le btn*/
 }
 p#message{
     margin: 20px auto 0 auto;
+    color: white;
 }
 #rejouer{/*btn rejouer qui ne s'affiche que lorque l on gagne ou lorsque l on perd*/
     display: none; /*pour ne pas l'afficher à l'écran*/
@@ -79,7 +97,102 @@ p#message{
 }
 #details{
     font-weight: bold;
-    font-size: 6px;
+    font-size: 25px;
     margin-top: 5px;
+}
+#rebours{
+    font-size: 40px;
+}
+/* @media(max-width: 1200px){
+    .container{
+        width: 80vw;
+        height: 70vh;
+    }
+    h1{
+        margin-top: 40px;
+    }
+    h2{
+        font-size: 50px;
+        padding-bottom: 70px;
+    }
+    p#message{
+        margin: 20px auto 0 auto;
+        font-size: 20px;
+    }
+    #rebours{
+        font-size: 40px;
+    }
+} */
+@media(max-width: 996px){
+    .container{
+        padding: 5px; 
+        
+    }
+    h1{
+        margin-bottom: 20px;
+        margin-top: 20px;
+        font-size: 50px;
+    }
+    h2{
+        font-size: 20px;
+        padding-bottom: 100px;
+    }
+    p#message{
+        margin: 20px auto 0 auto;
+    }
+    #details{
+        font-weight: bold;
+        font-size: 20px;
+        margin-top: 4px;
+    }
+    #rebours{
+        font-size: 20px;
+    }
+    #message{
+        font-size: 25px;
+        color: white;
+        padding-bottom: 10px;
+    }
+    
+}
+@media(max-width: 768px) {
+    #details{
+        font-size: 17px;
+    }
+    
+}
+@media(max-width: 576px){
+    .container{
+        width: 80vw;
+        
+    }
+    
+    h1{
+        margin-bottom: 30px;
+        margin-top: 50px;
+        font-size: 40px;
+    }
+    h2{
+        font-size: 30px;
+        padding-bottom: 100px;
+    }
+    button{
+        width: 140px;
+        height: 50px;
+        font-size: 20px;
+    }
+    p#message{
+        margin: 20px auto 0 auto;
+    }
+    #details{
+        font-size: 15px;
+    }
+    #rebours{
+        font-size: 20px;
+    }
+}
+@media(max-width: 320px){
+
+    
 }
 

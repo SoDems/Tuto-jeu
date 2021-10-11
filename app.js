@@ -161,7 +161,7 @@ const play = (totalVies) => {  //fonction fléchée = nouvelle synthaxe depuis e
     }
     tableauDeVies.forEach/*pour chaque*/(coeur => {
         divVies.innerHTML += coeur;     /*+= rajouter aux autres*/
-        rebours.textContent= `Trouve le bon nombre entre 0 et 100. Tu as ${vies} essais`;
+        rebours.textContent= `Trouve le bon nombre entre 0 et 100. Tu as ${vies} essais !`;
     })
 /* générer le nombre de coeur en fonction de nombre de vies*/
    }
