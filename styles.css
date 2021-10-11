@@ -70,7 +70,7 @@ button:hover{
 p#message{
     margin: 20px auto 0 auto;
 }
-#rejouer{/*btn rejouer qui ne s'affiche que lorque l on gagne ou lorsque l on perd
+#rejouer{/*btn rejouer qui ne s'affiche que lorque l on gagne ou lorsque l on perd*/
     display: none; /*pour ne pas l'afficher à l'écran*/
     margin: 5px auto 0 auto;
 }

@@ -27,15 +27,16 @@
 
 //Elements du DOM
 const divVies = document.querySelector('.vies'); /*pour recupere une div de l'html*/
-const message = document.getElementById('message'); /*pas besoin de rappeler l'id ds les parenthèses puisqu il est déja appeler*/
+const message = document.getElementById('message'); /*pas besoin de rappeler l'id ds les parenthèses puisqu il est déja appelé*/
 const formulaire = document.getElementById('inputBox');
 const input = document.getElementById('number');
 const essayerBtn = document.getElementById('essayerBtn');
 const rejouerBtn = document.getElementById('rejouer');
 const body = document.getElementsByTagName('body')[0];/*pour choisir l'element on choisit l'element body*/
+const rebours = document.getElementById('rebours');
 
 // Modèles de coeur
-const coeurVide = '<ion-icon name="heart-outline"></ion-icon>'
+const coeurVide = '<ion-icon name="heart-outline"></ion-icon>';
 const coeurPlein = '<ion-icon name="heart"></ion-icon>';
 
 
@@ -52,17 +53,19 @@ const bgLooser = 'linear-gradient(60deg, #29323c 0%, #485563 100%)';
 //Récuperation de la valeur du formulaire ce que l utilisateur va entrer pour jouer
 
 // play :
-const play = () => {  //fonction fléchée = nouvelle synthaxe depuis es6 (c'est une norme, c’est un standard de langage de programmation, il definit: la synthaxe, les types de variable et autres
+const play = () => {  //fonction fléchée = nouvelle synthaxe depuis es6 (c'est une norme, c’est un standard de langage de programmation, il definit: la synthaxe, les types de variable et autres   => lancer une fonction
    //comment generer un nombre aleatoire ?
    const randomNumber = Math.floor(Math.random(/*chiffre entre 0 et 1*/) *101) /*math.floor = pour avoir des nombres entiers à la valeur inférieur*/
-   const totalVies = 6;
+   const totalVies = 5;
    let vies = totalVies; 
+   
+
    console.log(randomNumber); /*pour voir le chiffre choisi par la machine ds la console*/
 
    //actualiser à chaque essai - TOUTE LA LOGIQUE
    formulaire.addEventListener('submit' , (e) => {     /*qui va se déclencher à une certaine action, le (e) submit = des que le formulaire va etre envoyé, on va lui ordonner une fonction. le (e) represente l'element ou va se derouler l'evenement */
         e.preventDefault(); /*empeche l'envoie du formulaire sinon ça rafraichit la page et plus de jeu*/
-        const valeurInput = parseIn(input.value); /*parseIn= convesion d'un string en nombre  /*recupère la valeur  de l'input (la ou la personne ecrit)*/
+        const valeurInput = parseInt(input.value); /*parseInt= conversion d'un string en nombre  /*recupère la valeur  de l'input (la ou la personne ecrit)*/
 
         if(valeurInput < 0  || valeurInput > 100) return; /* le jeu ne peut pas continuer ac ses valeurs*/
 
@@ -70,6 +73,9 @@ const play = () => {  //fonction fléchée = nouvelle synthaxe depuis es6 (c'est
             body.style.backgroundImage = bgWin;
             message.textContent = `Bravo !! Le nombre était bien ${randomNumber}`;
             rejouerBtn.style.display = "block";/*ce btn n'était pas afficher jusqu'à present puis qu on l'avait mis en caché*/
+            // essayerBtn.setAttribute("disabled","");
+            essayerBtn.style.display = "none";
+            
         } 
         //Système chaud/froid   
         // fixer des fourchettes de valeurs
@@ -79,6 +85,7 @@ const play = () => {  //fonction fléchée = nouvelle synthaxe depuis es6 (c'est
          /*(randomNumber <= valeurInput + 2) && (randomNumber >= valeurInput - 2)*/
                 body.style.backgroundImage = bgBrulant;
                 message.textContent = "C'est brûlant !!! 🔥🔥🔥"; /*ctrl i*/
+                
             }
             else if(randomNumber < valeurInput + 6 && randomNumber > valeurInput -6){
                 body.style.backgroundImage = bgChaud;
@@ -92,9 +99,12 @@ const play = () => {  //fonction fléchée = nouvelle synthaxe depuis es6 (c'est
                 body.style.backgroundImage = bgFroid;
                 message.textContent = "C'est froid !!! ❄️"; 
             }
-            vies--;
-            verifyLoose();
+            
+            vies--;    /*système de vies*/
+
+            verifyLoose();  
         }
+        actualiseCoeurs(vies);
 
 
 
@@ -103,15 +113,38 @@ const play = () => {  //fonction fléchée = nouvelle synthaxe depuis es6 (c'est
             if(vies === 0){
                 body.style.backgroundImage = bgLooser;
                 body.style.color = '#990000';
-                essayerBtn.setAttribute("disabled","")/*pour desactiver le btn "essayer"   disabled=désactiver*/
+                essayerBtn.setAttribute("disabled", "")/*pour desactiver le btn "essayer"   disabled=désactiver*/
                 message.textContent = `Vous avez perdu. La réponse était ${randomNumber}`;
                 rejouerBtn.style.display = "block";
             }
    }
+   const actualiseCoeurs = (vies) => { 
+       divVies.innerHTML = "" /*on enlève tout le html qu il y a à l'intérieur pour repartir sur une bonne base car on va l'actualiser à chaque fois*/
+       let tableauDeVies = []; /*initialiser à un tableau vide*/
+       for(let i = 0; i < vies; i++){ /*for = tant que*/
+           tableauDeVies.push(coeurPlein);
+       }
+       //[coeur, coeur, coeur, coeur] tableau qu on  aura sur le jeu
+       for(let i = 0; i < totalVies - vies; i++){  /*nombre de coeur qu on a perdu*/
+        tableauDeVies.push(coeurVide);
+    }
+    tableauDeVies.forEach/*pour chaque*/(coeur => {
+        divVies.innerHTML += coeur;     /*+= rajouter aux autres*/
+        rebours.textContent= `Trouve le bon nombre entre 0 et 100. Tu as ${vies} essais`;
+    })
+/* générer le nombre de coeur en fonction de nombre de vies*/
+   }
+   
+   actualiseCoeurs(vies);
+   /*pour rejouer =  forcer le chargement de la page (recommencer)*/
+    rejouerBtn.addEventListener('click', () => {
+       message.style.display = 'none'  /*message enlevé*/
+       document.location.reload(true); /* la page se rafraichit des qu on clique sur le btn, la page réapparait*/
 
+   })
 
-  
 }
+play();
 
 
 
